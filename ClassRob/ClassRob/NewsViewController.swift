@@ -8,13 +8,19 @@
 
 import UIKit
 
-class NewsViewController: UITableViewController {
+class NewsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    var news = [NewsCell]()
+    @IBOutlet weak var newsTableView: UITableView!
+    var news = [News]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        news.append(News(title: "test", url: nil)!)
+        news.append(News(title: "test2", url: nil)!)
+
+        newsTableView.delegate = self
+        newsTableView.dataSource = self
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -29,25 +35,27 @@ class NewsViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return news.count
     }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as? NewsCell else {
+            fatalError("cell error")
+        }
 
         // Configure the cell...
+        cell.newsTitle.text = news[indexPath.row].title
+        // cell.url = news[index.Path].url
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
