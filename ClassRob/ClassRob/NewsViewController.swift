@@ -8,16 +8,16 @@
 
 import UIKit
 
-class NewsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class NewsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,
+                        XMLParserDelegate {
 
     @IBOutlet weak var newsTableView: UITableView!
     var news = [News]()
+    var takeTitle = false
+    var takeURL = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        news.append(News(title: "test", url: nil)!)
-        news.append(News(title: "test2", url: nil)!)
 
         newsTableView.delegate = self
         newsTableView.dataSource = self
@@ -26,6 +26,13 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+
+        // let url = "http://www.jwc.sjtu.edu.cn/rss/rss_notice.aspx?SubjectID=198015&TemplateID=221009"
+        let url = "http://www.lcdtyph.com.cn/xrss.xml"
+        let parser = XMLParser(contentsOf: URL(string: url)!)
+        parser?.delegate = self
+        parser?.parse()
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -101,5 +108,61 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Pass the selected object to the new view controller.
     }
     */
+
+    var newTitle: String!
+    var newURL: String?
+
+    public func parser(_ parser: XMLParser, didStartElement elementName: String,
+                       namespaceURI: String?, qualifiedName qName: String?,
+                       attributes attributeDict: [String : String] = [:]) {
+
+        switch elementName {
+
+        case "item":
+            takeTitle = false
+            takeURL = false
+
+        case "title":
+            takeTitle = true
+
+        case "link":
+            takeURL = true
+
+        default: break
+        }
+    }
+
+    public func parser(_ parser: XMLParser, didEndElement elementName: String,
+                       namespaceURI: String?, qualifiedName qName: String?) {
+
+        switch elementName {
+
+        case "item":
+            takeTitle = false
+            takeURL = false
+            news.append(News(title: newTitle, url: newURL)!)
+
+        case "title":
+            takeTitle = false
+
+        case "link":
+            takeURL = false
+
+        default: break
+        }
+    }
+
+    public func parser(_ parser: XMLParser, foundCharacters string: String) {
+        if takeTitle {
+            newTitle = string.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
+        }
+        if takeURL {
+            newURL = string
+        }
+    }
+
+    func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
+        print(parseError.localizedDescription)
+    }
 
 }
