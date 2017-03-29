@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9077F5501E8A7ED00034192C /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9077F54F1E8A7ED00034192C /* FavoriteViewController.swift */; };
+		9077F5531E8A833B0034192C /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9077F5521E8A833B0034192C /* libsqlite3.0.tbd */; };
 		907C71B61E7970D200FC41D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907C71B51E7970D200FC41D6 /* AppDelegate.swift */; };
 		907C71B81E7970D200FC41D6 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907C71B71E7970D200FC41D6 /* SearchViewController.swift */; };
 		907C71BD1E7970D200FC41D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 907C71BB1E7970D200FC41D6 /* Main.storyboard */; };
@@ -19,7 +21,6 @@
 		90F255591E863BBA00D10823 /* NewsTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90F255571E863BBA00D10823 /* NewsTab.storyboard */; };
 		90F2555B1E863C3200D10823 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90F2555A1E863C3200D10823 /* Search.storyboard */; };
 		90F2555F1E863C8700D10823 /* Favorite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90F2555D1E863C8700D10823 /* Favorite.storyboard */; };
-		90F255611E863D1B00D10823 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F255601E863D1B00D10823 /* FavoriteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +34,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9077F54F1E8A7ED00034192C /* FavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		9077F5521E8A833B0034192C /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		9077F5541E8A83F40034192C /* bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = bridge.h; path = ../bridge.h; sourceTree = "<group>"; };
 		907C71B21E7970D200FC41D6 /* ClassRob.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClassRob.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		907C71B51E7970D200FC41D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		907C71B71E7970D200FC41D6 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -49,7 +53,6 @@
 		90F255581E863BBA00D10823 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/NewsTab.storyboard; sourceTree = "<group>"; };
 		90F2555A1E863C3200D10823 /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		90F2555E1E863C8700D10823 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Favorite.storyboard; sourceTree = "<group>"; };
-		90F255601E863D1B00D10823 /* FavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9077F5531E8A833B0034192C /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +74,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9077F5511E8A833A0034192C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9077F5521E8A833B0034192C /* libsqlite3.0.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		907C71A91E7970D100FC41D6 = {
 			isa = PBXGroup;
 			children = (
 				907C71B41E7970D200FC41D6 /* ClassRob */,
 				907C71CB1E7970D200FC41D6 /* ClassRobTests */,
 				907C71B31E7970D200FC41D6 /* Products */,
+				9077F5511E8A833A0034192C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -91,6 +104,7 @@
 		907C71B41E7970D200FC41D6 /* ClassRob */ = {
 			isa = PBXGroup;
 			children = (
+				9077F5541E8A83F40034192C /* bridge.h */,
 				90F2555C1E863C5300D10823 /* SearchTab */,
 				90F255561E86395E00D10823 /* NewsTab */,
 				90F255621E863D2500D10823 /* FavoriteTab */,
@@ -136,7 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				90F2555D1E863C8700D10823 /* Favorite.storyboard */,
-				90F255601E863D1B00D10823 /* FavoriteViewController.swift */,
+				9077F54F1E8A7ED00034192C /* FavoriteViewController.swift */,
 			);
 			name = FavoriteTab;
 			sourceTree = "<group>";
@@ -251,7 +265,7 @@
 				907C71D81E7A391400FC41D6 /* NewsCell.swift in Sources */,
 				907C71DE1E7BA35B00FC41D6 /* NewsViewController.swift in Sources */,
 				907C71B61E7970D200FC41D6 /* AppDelegate.swift in Sources */,
-				90F255611E863D1B00D10823 /* FavoriteViewController.swift in Sources */,
+				9077F5501E8A7ED00034192C /* FavoriteViewController.swift in Sources */,
 				907C71B81E7970D200FC41D6 /* SearchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -411,6 +425,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lcdtyph.ClassRob;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = bridge.h;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -423,6 +438,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lcdtyph.ClassRob;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = bridge.h;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
