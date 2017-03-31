@@ -7,15 +7,37 @@
 //
 
 import UIKit
+import FMDB
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        guard let documents = try? FileManager.default.url(for: .documentDirectory,
+                                                      in: .userDomainMask,
+                                                      appropriateFor: nil,
+                                                      create: true) else {
+            fatalError("url error")
+        }
+        let favURL = documents.appendingPathComponent("fav.db")
+        if FileManager.default.fileExists(atPath: favURL.path) {
+            print("found fav.db")
+        } else {
+            let database = FMDatabase(path: favURL.path)!
+            if !database.open() {
+                print("cannot open database")
+            }
+            do {
+                try database.executeUpdate("create table favorite(Cnumber char(8) not null, Cteacher char(16) not null)", values: nil)
+                database.close()
+                print("fav.db created")
+            }catch {
+                print(error.localizedDescription)
+            }
+        }
         return true
     }
 

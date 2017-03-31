@@ -13,6 +13,9 @@ class FavoriteViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let fileURL = documents[0].appendingPathComponent("fav.db")
+        print(fileURL.absoluteString)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

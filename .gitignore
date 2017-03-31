@@ -74,4 +74,4 @@ __pycache__
 build_database/*.xml
 output/
 *.log
-
+course.db
