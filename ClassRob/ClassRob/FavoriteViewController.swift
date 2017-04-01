@@ -7,20 +7,87 @@
 //
 
 import UIKit
+import FMDB
+
+class FavItem {
+    var name: String
+    var number: String
+    var teacher: String
+
+    init(name: String, number: String, teacher: String) {
+        self.name = name
+        self.number = number
+        self.teacher = teacher
+    }
+}
 
 class FavoriteViewController: UITableViewController {
+
+    var favItems = [FavItem]()
+    var database: FMDatabase? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let fileURL = documents[0].appendingPathComponent("fav.db")
-        print(fileURL.absoluteString)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        initDatabase()
+        loadFavItems()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        closeDatabase()
+    }
+
+    func loadFavItems() {
+        do {
+            let result = (try self.database?.executeQuery("select Cname,Cnumber,Cteacher from favorite", values: nil))!
+
+            while result.next() {
+                self.favItems.append(FavItem(name: result.string(forColumn: "Cname"),
+                                             number: result.string(forColumn: "Cnumber"),
+                                             teacher: result.string(forColumn: "Cteacher")))
+            }
+
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+
+    func initDatabase() {
+        if (self.database != nil) {
+            return
+        }
+
+        guard let documents = try? FileManager.default.url(for: .documentDirectory,
+                                                           in: .userDomainMask,
+                                                           appropriateFor: nil,
+                                                           create: true) else {
+            fatalError("url error")
+        }
+        let fileURL = documents.appendingPathComponent("fav.db")
+        print(fileURL.absoluteString)
+
+        self.database = FMDatabase(path: fileURL.path)!
+
+        if !((self.database?.open())!) {
+            fatalError("database open failed")
+        }
+    }
+
+    func closeDatabase() {
+        self.database?.close()
+        self.database = nil
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,23 +99,26 @@ class FavoriteViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.favItems.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "FavCell", for: indexPath) as? FavCell else {
+            fatalError()
+        }
 
         // Configure the cell...
+        cell.courseName.text = favItems[indexPath.row].name
+        cell.courseNumber.text = favItems[indexPath.row].number
+        cell.courseTeacher.text = favItems[indexPath.row].teacher
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
