@@ -31,8 +31,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("cannot open database")
             }
             do {
-                try database.executeUpdate("create table favorite(Cnumber char(8) not null, " +
-                                           "Cname varchar(255) not null, Cteacher char(16) not null)", values: nil)
+                try database.executeUpdate("create table favorite(" +
+                                            "Cnumber char(8) not null, " +
+                                            "Cname varchar(255) not null, " +
+                                            "Cteacher char(16) not null, " +
+                                            "Cday tinyint not null, " +
+                                            "Cteacher char(16) not null, " +
+                                            "Ctime_start tinyint not null, " +
+                                            "Ctime_end tinyint not null, " +
+                                            "Croom varchar(64) not null, " +
+                                            "Cweeks varchar(64) not null" +
+                                           ")", values: nil)
                 database.close()
                 print("fav.db created")
             }catch {
