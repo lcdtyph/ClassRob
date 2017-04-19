@@ -155,14 +155,19 @@ class FavoriteViewController: UITableViewController {
     }
     */
 
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "FavoriteSegue" {
+            let nextPage = segue.destination as! CourseDetailController
+            nextPage.detail = CourseDetail("a", "b", "c", "d", "e", "f", "g")
+            nextPage.title = "Course Detail"
+        }
     }
-    */
+
 
 }
