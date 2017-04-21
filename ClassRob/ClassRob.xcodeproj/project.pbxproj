@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		26E1F99C1D75E84164973361 /* Pods_ClassRobTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F701176761484630E3D3C66A /* Pods_ClassRobTests.framework */; };
 		29C8ACC0ADFB996A647A8378 /* Pods_ClassRob.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0045AE4AFFFC9AE91828F17 /* Pods_ClassRob.framework */; };
+		90402AD01EA67F51001E420F /* CourseDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90402ACF1EA67F51001E420F /* CourseDetail.storyboard */; };
+		90402AD31EA685C4001E420F /* CourseDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90402AD21EA685C4001E420F /* CourseDetailController.swift */; };
+		90402AD51EA6FD92001E420F /* CourseDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90402AD41EA6FD92001E420F /* CourseDetail.swift */; };
 		9077F5501E8A7ED00034192C /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9077F54F1E8A7ED00034192C /* FavoriteViewController.swift */; };
 		9077F5531E8A833B0034192C /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9077F5521E8A833B0034192C /* libsqlite3.0.tbd */; };
 		9077F5561E8B54E50034192C /* course.db in Resources */ = {isa = PBXBuildFile; fileRef = 9077F5551E8B54E50034192C /* course.db */; };
@@ -21,6 +24,7 @@
 		907C71D81E7A391400FC41D6 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907C71D71E7A391400FC41D6 /* NewsCell.swift */; };
 		907C71DC1E7A658900FC41D6 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907C71DB1E7A658900FC41D6 /* News.swift */; };
 		907C71DE1E7BA35B00FC41D6 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907C71DD1E7BA35B00FC41D6 /* NewsViewController.swift */; };
+		90B731601E8F647E005FF755 /* FavCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B7315F1E8F647E005FF755 /* FavCell.swift */; };
 		90F255591E863BBA00D10823 /* NewsTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90F255571E863BBA00D10823 /* NewsTab.storyboard */; };
 		90F2555B1E863C3200D10823 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90F2555A1E863C3200D10823 /* Search.storyboard */; };
 		90F2555F1E863C8700D10823 /* Favorite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90F2555D1E863C8700D10823 /* Favorite.storyboard */; };
@@ -39,6 +43,9 @@
 /* Begin PBXFileReference section */
 		4302AFA751D525F71DF014AD /* Pods-ClassRob.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassRob.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClassRob/Pods-ClassRob.release.xcconfig"; sourceTree = "<group>"; };
 		66A54FD2E821B35566F8B94C /* Pods-ClassRob.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClassRob.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClassRob/Pods-ClassRob.debug.xcconfig"; sourceTree = "<group>"; };
+		90402ACF1EA67F51001E420F /* CourseDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CourseDetail.storyboard; sourceTree = "<group>"; };
+		90402AD21EA685C4001E420F /* CourseDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseDetailController.swift; sourceTree = "<group>"; };
+		90402AD41EA6FD92001E420F /* CourseDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseDetail.swift; sourceTree = "<group>"; };
 		9077F54F1E8A7ED00034192C /* FavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		9077F5521E8A833B0034192C /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		9077F5551E8B54E50034192C /* course.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = course.db; sourceTree = "<group>"; };
@@ -55,6 +62,7 @@
 		907C71D71E7A391400FC41D6 /* NewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		907C71DB1E7A658900FC41D6 /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		907C71DD1E7BA35B00FC41D6 /* NewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		90B7315F1E8F647E005FF755 /* FavCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavCell.swift; sourceTree = "<group>"; };
 		90F255581E863BBA00D10823 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/NewsTab.storyboard; sourceTree = "<group>"; };
 		90F2555A1E863C3200D10823 /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		90F2555E1E863C8700D10823 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Favorite.storyboard; sourceTree = "<group>"; };
@@ -85,6 +93,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		90402AD11EA6855F001E420F /* CourseDetail */ = {
+			isa = PBXGroup;
+			children = (
+				90402ACF1EA67F51001E420F /* CourseDetail.storyboard */,
+				90402AD21EA685C4001E420F /* CourseDetailController.swift */,
+				90402AD41EA6FD92001E420F /* CourseDetail.swift */,
+			);
+			name = CourseDetail;
+			sourceTree = "<group>";
+		};
 		9077F5511E8A833A0034192C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +137,7 @@
 		907C71B41E7970D200FC41D6 /* ClassRob */ = {
 			isa = PBXGroup;
 			children = (
+				90402AD11EA6855F001E420F /* CourseDetail */,
 				90F2555C1E863C5300D10823 /* SearchTab */,
 				90F255561E86395E00D10823 /* NewsTab */,
 				90F255621E863D2500D10823 /* FavoriteTab */,
@@ -164,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				90F2555D1E863C8700D10823 /* Favorite.storyboard */,
+				90B7315F1E8F647E005FF755 /* FavCell.swift */,
 				9077F54F1E8A7ED00034192C /* FavoriteViewController.swift */,
 			);
 			name = FavoriteTab;
@@ -236,6 +256,7 @@
 				TargetAttributes = {
 					907C71B11E7970D200FC41D6 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = R5NJT7NUJA;
 						ProvisioningStyle = Automatic;
 					};
 					907C71C71E7970D200FC41D6 = {
@@ -275,6 +296,7 @@
 				907C71BF1E7970D200FC41D6 /* Assets.xcassets in Resources */,
 				907C71BD1E7970D200FC41D6 /* Main.storyboard in Resources */,
 				90F2555F1E863C8700D10823 /* Favorite.storyboard in Resources */,
+				90402AD01EA67F51001E420F /* CourseDetail.storyboard in Resources */,
 				90F2555B1E863C3200D10823 /* Search.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -386,11 +408,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90402AD51EA6FD92001E420F /* CourseDetail.swift in Sources */,
 				907C71DC1E7A658900FC41D6 /* News.swift in Sources */,
 				907C71D81E7A391400FC41D6 /* NewsCell.swift in Sources */,
 				907C71DE1E7BA35B00FC41D6 /* NewsViewController.swift in Sources */,
+				90402AD31EA685C4001E420F /* CourseDetailController.swift in Sources */,
 				907C71B61E7970D200FC41D6 /* AppDelegate.swift in Sources */,
 				9077F5501E8A7ED00034192C /* FavoriteViewController.swift in Sources */,
+				90B731601E8F647E005FF755 /* FavCell.swift in Sources */,
 				907C71B81E7970D200FC41D6 /* SearchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -547,6 +572,7 @@
 			baseConfigurationReference = 66A54FD2E821B35566F8B94C /* Pods-ClassRob.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = R5NJT7NUJA;
 				INFOPLIST_FILE = ClassRob/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lcdtyph.ClassRob;
@@ -561,6 +587,7 @@
 			baseConfigurationReference = 4302AFA751D525F71DF014AD /* Pods-ClassRob.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = R5NJT7NUJA;
 				INFOPLIST_FILE = ClassRob/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lcdtyph.ClassRob;
