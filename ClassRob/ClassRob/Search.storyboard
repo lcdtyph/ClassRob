@@ -42,7 +42,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <state key="normal" title="搜 索"/>
                                         <connections>
-                                            <segue destination="O5u-U6-YeV" kind="presentation" identifier="SearchSegue" id="Hvo-EB-bdB"/>
+                                            <segue destination="O5u-U6-YeV" kind="show" identifier="SearchSegue" id="Hvo-EB-bdB"/>
                                         </connections>
                                     </button>
                                 </subviews>

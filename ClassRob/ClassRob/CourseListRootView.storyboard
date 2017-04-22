@@ -32,7 +32,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="GJi-rz-jSe"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -44,7 +44,7 @@
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TeacherName" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ARr-8p-gBa">
                                             <rect key="frame" x="292" y="14" width="75" height="26"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -78,7 +78,7 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Root View Controller" id="VnQ-Tb-K5c">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="nhY-mc-ypR">
+                        <barButtonItem key="leftBarButtonItem" title="返回" id="nhY-mc-ypR">
                             <connections>
                                 <action selector="cancel:" destination="CUr-tV-u0c" id="oCP-Lh-NX0"/>
                             </connections>
