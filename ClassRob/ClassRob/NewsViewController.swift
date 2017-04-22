@@ -17,6 +17,7 @@ class NewsViewController: UITableViewController, XMLParserDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -27,8 +28,8 @@ class NewsViewController: UITableViewController, XMLParserDelegate {
 
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
 
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         let url = "http://www.lcdtyph.com.cn/xrss.xml"
@@ -36,6 +37,7 @@ class NewsViewController: UITableViewController, XMLParserDelegate {
         parser?.delegate = self
         parser?.parse()
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
