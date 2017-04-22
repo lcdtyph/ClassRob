@@ -87,9 +87,9 @@ class CourseDetailController: UIViewController {
 
         do {
             if newstat == 1 {
-                var sqlQuery = "insert into favorite(Cnumber, Cteacher, Cname, Cweeks, "
+                var sqlQuery = "insert into favorite(Cnumber, Cteacher, Cname, Cweeks, Cmark, "
                 sqlQuery += "Ctime_start, Ctime_end, Cday, Croom, Clocation)"
-                sqlQuery += "values('\(detail.id)', '\(detail.teacher)', '\(detail.name)', '\(detail.weeks)', "
+                sqlQuery += "values('\(detail.id)', '\(detail.teacher)', '\(detail.name)', '\(detail.weeks)', '\(detail.mark)', "
                 sqlQuery += String(format: "'%@', '%@', '%@', '%@', '%@')", arguments: detail.raw_values)
 
                 try database?.executeUpdate(sqlQuery, values: nil)
