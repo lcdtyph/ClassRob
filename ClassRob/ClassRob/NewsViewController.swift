@@ -30,10 +30,12 @@ class NewsViewController: UITableViewController, XMLParserDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         let url = "http://www.lcdtyph.com.cn/xrss.xml"
         let parser = XMLParser(contentsOf: URL(string: url)!)
         parser?.delegate = self
         parser?.parse()
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
 
     override func didReceiveMemoryWarning() {

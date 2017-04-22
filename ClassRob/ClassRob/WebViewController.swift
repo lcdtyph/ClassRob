@@ -8,13 +8,17 @@
 
 import UIKit
 
-class WebViewController: UIViewController {
+class WebViewController: UIViewController, UIWebViewDelegate {
 
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var webView: UIWebView!
+
     var news: News? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        webView.delegate = self
 
         // Do any additional setup after loading the view.
     }
@@ -28,7 +32,21 @@ class WebViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
+    func webViewDidStartLoad(_ webView: UIWebView) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        indicator.startAnimating()
+    }
+
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        indicator.stopAnimating()
+    }
+
+    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        indicator.stopAnimating()
+    }
 
     /*
     // MARK: - Navigation
