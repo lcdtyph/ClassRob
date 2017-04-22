@@ -28,7 +28,7 @@ def main():
     for url in urls:
         try:
             newhtml = url2json(url)
-            reqbody.replace(url, 'http://lcdtyph.com.cn/' + newhtml)
+            reqbody = reqbody.replace(url, 'http://lcdtyph.com.cn/' + newhtml)
         except:
             print(url)
 
