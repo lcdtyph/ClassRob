@@ -57,6 +57,7 @@ class FavoriteViewController: UINavigationController, UINavigationControllerDele
 
                 let result = (try self.database?.executeQuery("select * from favorite", values: nil))!
 
+                nextVC.listItem = []
                 while result.next() {
                     let id = result.string(forColumn: "Cnumber")!
                     let name = result.string(forColumn: "Cname")!
@@ -80,6 +81,7 @@ class FavoriteViewController: UINavigationController, UINavigationControllerDele
                 }
                 nextVC.title = "我的收藏"
                 nextVC.navigationItem.leftBarButtonItem = nil
+                nextVC.tableView.reloadData()
 
             } catch {
                 print(error.localizedDescription)
