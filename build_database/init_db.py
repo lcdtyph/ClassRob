@@ -12,13 +12,15 @@ def main():
 
     conn.execute('''CREATE TABLE course_info(
                 Cnumber char(8) not null,
+                Cteacher char(16) not null,
                 Cname varchar(255) not null,
                 Clocation varchar(128) not null,
                 Chours tinyint not null,
-                Cteacher char(16) not null,
+                Cmark tinyint not null,
                 primary key(Cnumber, Cteacher));''')
     conn.execute('''CREATE TABLE course_schedule(
                 Cnumber char(8) not null,
+                Cteacher char(16) not null,
                 Cday tinyint not null,
                 Ctime_start tinyint not null,
                 Ctime_end tinyint not null,
