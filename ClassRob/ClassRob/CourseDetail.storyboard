@@ -33,9 +33,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HFC-MH-T1D">
-                                <rect key="frame" x="16" y="304" width="343" height="343"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HFC-MH-T1D">
+                                <rect key="frame" x="16" y="303" width="343" height="280"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="CsZ-88-Wkd">
@@ -140,22 +139,62 @@
                                 <state key="selected" image="HighlightedStar"/>
                                 <state key="highlighted" image="FilledStar"/>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="SIV-Nc-eLL">
+                                <rect key="frame" x="16" y="591" width="343" height="60"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Mvu-pF-aT9">
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="60"/>
+                                        <color key="backgroundColor" red="0.97136091321243523" green="0.97136091321243523" blue="0.97136091321243523" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="dCp-fI-l4V"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2DN-oR-wdv">
+                                        <rect key="frame" x="302" y="0.0" width="41" height="60"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="评论"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="2DN-oR-wdv" firstAttribute="leading" secondItem="Mvu-pF-aT9" secondAttribute="trailing" constant="14" id="2I6-K8-itZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="2DN-oR-wdv" secondAttribute="bottom" id="E3b-NF-eDh"/>
+                                    <constraint firstItem="2DN-oR-wdv" firstAttribute="top" secondItem="SIV-Nc-eLL" secondAttribute="top" id="H28-Ov-j5f"/>
+                                    <constraint firstItem="Mvu-pF-aT9" firstAttribute="leading" secondItem="SIV-Nc-eLL" secondAttribute="leading" id="Hpa-aQ-Tmi"/>
+                                    <constraint firstAttribute="bottom" secondItem="Mvu-pF-aT9" secondAttribute="bottom" id="Ieq-mC-WS3"/>
+                                    <constraint firstAttribute="height" constant="60" id="pD1-vo-2aZ"/>
+                                    <constraint firstItem="Mvu-pF-aT9" firstAttribute="top" secondItem="SIV-Nc-eLL" secondAttribute="top" id="uQd-E8-KDC"/>
+                                    <constraint firstAttribute="trailing" secondItem="2DN-oR-wdv" secondAttribute="trailing" id="yHM-pt-GRa"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="c31-I2-t3k" firstAttribute="trailing" secondItem="X83-sA-ygi" secondAttribute="trailingMargin" id="3X3-mz-g06"/>
                             <constraint firstItem="CsZ-88-Wkd" firstAttribute="top" secondItem="3m2-xf-e5h" secondAttribute="bottom" constant="8" id="72L-q3-17y"/>
+                            <constraint firstItem="HFC-MH-T1D" firstAttribute="top" secondItem="CsZ-88-Wkd" secondAttribute="bottom" constant="16" id="E4I-Cg-Hwb"/>
+                            <constraint firstItem="EtV-Hu-oXP" firstAttribute="top" secondItem="HFC-MH-T1D" secondAttribute="bottom" constant="84" id="LCg-nT-D1X"/>
+                            <constraint firstItem="SIV-Nc-eLL" firstAttribute="leading" secondItem="X83-sA-ygi" secondAttribute="leadingMargin" id="MAU-S0-GiJ"/>
+                            <constraint firstItem="HFC-MH-T1D" firstAttribute="trailing" secondItem="X83-sA-ygi" secondAttribute="trailingMargin" id="SS1-Kh-9gC"/>
+                            <constraint firstItem="EtV-Hu-oXP" firstAttribute="top" secondItem="SIV-Nc-eLL" secondAttribute="bottom" constant="16" id="STJ-Uy-wQ6"/>
                             <constraint firstItem="CsZ-88-Wkd" firstAttribute="top" secondItem="c31-I2-t3k" secondAttribute="bottom" constant="8" id="WWg-EQ-nqm"/>
                             <constraint firstItem="3m2-xf-e5h" firstAttribute="height" secondItem="c31-I2-t3k" secondAttribute="height" id="ZGW-2M-YPw"/>
                             <constraint firstItem="3m2-xf-e5h" firstAttribute="trailing" secondItem="X83-sA-ygi" secondAttribute="trailingMargin" id="b1D-zS-4hS"/>
+                            <constraint firstItem="HFC-MH-T1D" firstAttribute="leading" secondItem="X83-sA-ygi" secondAttribute="leadingMargin" id="clW-Py-G4d"/>
                             <constraint firstItem="c31-I2-t3k" firstAttribute="top" secondItem="t5Q-x5-djK" secondAttribute="bottom" constant="8" id="jVy-iP-OlJ"/>
                             <constraint firstItem="Ysj-IS-PBU" firstAttribute="width" secondItem="X83-sA-ygi" secondAttribute="width" multiplier="0.35" constant="-32" id="mei-C3-HQz"/>
                             <constraint firstItem="c31-I2-t3k" firstAttribute="leading" secondItem="X83-sA-ygi" secondAttribute="leadingMargin" id="mwY-XH-aQs"/>
                             <constraint firstItem="CsZ-88-Wkd" firstAttribute="leading" secondItem="X83-sA-ygi" secondAttribute="leadingMargin" id="o4a-8X-X37"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="SIV-Nc-eLL" secondAttribute="trailing" id="qKh-fl-eTk"/>
                             <constraint firstAttribute="trailingMargin" secondItem="CsZ-88-Wkd" secondAttribute="trailing" id="wWq-S1-leT"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomConstraint" destination="STJ-Uy-wQ6" id="yGM-4X-5RD"/>
+                        <outlet property="editStack" destination="SIV-Nc-eLL" id="n2e-Wq-Yjw"/>
                         <outlet property="favButton" destination="3m2-xf-e5h" id="yuD-05-nVT"/>
                         <outlet property="id" destination="XIw-wA-ZdJ" id="7hr-V3-LaL"/>
                         <outlet property="location" destination="jRN-6X-5KX" id="5pe-9j-aqZ"/>

@@ -24,6 +24,7 @@ class CourseDetailController: UIViewController {
     @IBOutlet weak var time: UILabel!
     @IBOutlet weak var weeks: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var editStack: UIStackView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +38,22 @@ class CourseDetailController: UIViewController {
         self.time.text      = detail.time
         self.weeks.text     = detail.weeks
 
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
         favButton.addTarget(self, action: #selector(CourseDetailController.favButtonTapped(button:)), for: .touchUpInside)
+        NotificationCenter.default.addObserver(self,
+                            selector: #selector(CourseDetailController.keyboardWillShow(_: )),
+                            name: Notification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self,
+                            selector: #selector(CourseDetailController.keyboardWillHide(_: )),
+                            name: Notification.Name.UIKeyboardWillHide, object: nil)
+    }
+
+    func keyboardWillShow(_ notification: Notification) {
+        adjustingHeight(show: true, notification: notification)
+    }
+
+    func keyboardWillHide(_ notification: Notification) {
+        adjustingHeight(show: false, notification: notification)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -75,6 +91,11 @@ class CourseDetailController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         closeDatabase()
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -142,6 +163,14 @@ class CourseDetailController: UIViewController {
     func closeDatabase() {
         self.database?.close()
         self.database = nil
+    }
+
+    func adjustingHeight(show: Bool, notification: Notification) {
+        var userInfo = notification.userInfo!
+        let keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        let changeInHeight = (keyboardFrame.height) * (show ? 1 : -1)
+
+        editStack.frame.origin.y -= changeInHeight
     }
 
     /*

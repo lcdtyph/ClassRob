@@ -23,22 +23,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="WjG-CF-PdF">
-                                <rect key="frame" x="27.5" y="128" width="320" height="304"/>
+                                <rect key="frame" x="27.5" y="128" width="320" height="314"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JEc-vC-NJ5">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="JEc-vC-NJ5">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="adZ-Wx-dOV"/>
+                                            <constraint firstAttribute="height" constant="40" id="adZ-Wx-dOV"/>
                                         </constraints>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EKQ-gh-2U6">
-                                        <rect key="frame" x="0.0" y="38" width="320" height="216"/>
+                                        <rect key="frame" x="0.0" y="48" width="320" height="216"/>
                                     </pickerView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dau-ZI-Eee">
-                                        <rect key="frame" x="131.5" y="262" width="57" height="42"/>
+                                        <rect key="frame" x="131.5" y="272" width="57" height="42"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <state key="normal" title="搜 索"/>
                                         <connections>

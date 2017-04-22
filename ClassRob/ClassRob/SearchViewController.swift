@@ -19,7 +19,7 @@ class SearchViewController: UIViewController, UIPickerViewDelegate, UIPickerView
 
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var nameKeyword: UITextField!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -35,6 +35,11 @@ class SearchViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         closeDatabase()
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
     }
 
     override func didReceiveMemoryWarning() {
