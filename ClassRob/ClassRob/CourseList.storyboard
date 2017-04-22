@@ -67,6 +67,7 @@
                                     <outlet property="courseName" destination="MR7-4J-qd0" id="xXc-4l-18H"/>
                                     <outlet property="schedule" destination="YGp-6I-004" id="J0C-Jv-GnL"/>
                                     <outlet property="teacherName" destination="ARr-8p-gBa" id="AAv-dC-BuB"/>
+                                    <segue destination="xJy-4P-gCa" kind="show" identifier="LoadCourseDetail" id="SxV-FQ-PIe"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -88,6 +89,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3lb-AH-fJM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="89.505247376311857"/>
+        </scene>
+        <!--CourseDetail-->
+        <scene sceneID="Px1-Zj-HIt">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CourseDetail" id="xJy-4P-gCa" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S8z-FA-gFR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="920" y="91"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="UjN-g0-rJg">

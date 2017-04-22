@@ -27,4 +27,6 @@ class CourseDetail {
     var location: String = "n/a"
     var time:     String = "n/a"
     var weeks:    String = "n/a"
+    var favorite: Int    = -1
+    var raw_values: [String] = []
 }

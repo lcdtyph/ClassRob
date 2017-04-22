@@ -93,6 +93,7 @@ class SearchViewController: UIViewController, UIPickerViewDelegate, UIPickerView
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
+
         if segue.identifier != "SearchSegue" { return }
         var sqlQuery: String = ""
         sqlQuery += "select a.*, b.Cday, b.Ctime_start, b.Ctime_end, b.Croom, b.Cweeks "
@@ -115,17 +116,24 @@ class SearchViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             let listPage = nextPage.viewControllers.first as! CourseListViewController
             listPage.title = "搜索结果"
             while result.next() {
-                let start = Int(result.int(forColumn: "Ctime_start"))
-                let end = Int(result.int(forColumn: "Ctime_end"))
-                let tmpDetail = CourseDetail(result.string(forColumn: "Cname"),
-                                             result.string(forColumn: "Cteacher"),
-                                             result.string(forColumn: "Cnumber"),
-                                             result.string(forColumn: "Cmark"),
-                                             result.string(forColumn: "Clocation") + " " + result.string(forColumn: "Croom"),
-                                             days[Int(result.int(forColumn: "Cday")) + 1] +
-                                                 String(format: "第%x节-第%x节", start, end),
-                                             result.string(forColumn: "Cweeks")
+                let id = result.string(forColumn: "Cnumber")!
+                let name = result.string(forColumn: "Cname")!
+                let teacher = result.string(forColumn: "Cteacher")!
+                let start = result.string(forColumn: "Ctime_start")!
+                let end = result.string(forColumn: "Ctime_end")!
+                let day = result.string(forColumn: "Cday")!
+                let room = result.string(forColumn: "Croom")!
+                let weeks = result.string(forColumn: "Cweeks")!
+                let mark = result.string(forColumn: "Cmark")!
+                let location = result.string(forColumn: "Clocation")!
+
+                let tmpDetail = CourseDetail(name, teacher, id, mark,
+                                             location + " " + room,
+                                             days[Int(day)! + 1] +
+                                                 String(format: "第%@节-第%@节", start, end),
+                                             weeks
                                              )
+                tmpDetail.raw_values = [start, end, day, room, location]
                 listPage.listItem.append(tmpDetail)
             }
         } catch {

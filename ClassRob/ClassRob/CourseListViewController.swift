@@ -104,6 +104,11 @@ class CourseListViewController: UITableViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         super.prepare(for: segue, sender: sender)
+        if segue.identifier != "LoadCourseDetail" { return }
+
+        let nextPage = segue.destination as! CourseDetailController
+        let selectedIndex = tableView.indexPathForSelectedRow!
+        nextPage.detail = listItem[selectedIndex.row]
     }
 
 }
