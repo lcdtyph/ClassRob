@@ -11,7 +11,7 @@ import UIKit
 class NewsCell: UITableViewCell {
 
     @IBOutlet weak var newsTitle: UILabel!
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

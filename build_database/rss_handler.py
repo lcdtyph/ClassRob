@@ -3,6 +3,8 @@
 
 import requests
 import sys
+import re
+from url_to_json import url2json
 
 def main():
     prefix = '.'
@@ -20,6 +22,16 @@ def main():
     for i in range(count):
         lastpos = reqbody.find('</item>', lastpos) + len('</item>')
     reqbody = reqbody[0: lastpos] + '</channel></rss>'
+
+    urls = re.findall(r'<item><title>[^</]+</title><link>([^<]+)</link>', reqbody)
+
+    for url in urls:
+        try:
+            newhtml = url2json(url)
+            reqbody = reqbody.replace(url, 'http://lcdtyph.com.cn/' + newhtml)
+        except:
+            print(url)
+
     with open(prefix + "/" + filename, 'w') as f:
         f.write(reqbody.replace('gb2312', 'utf-8'))
 

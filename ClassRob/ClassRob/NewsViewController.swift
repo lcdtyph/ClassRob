@@ -8,10 +8,8 @@
 
 import UIKit
 
-class NewsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,
-                        XMLParserDelegate {
+class NewsViewController: UITableViewController, XMLParserDelegate {
 
-    @IBOutlet weak var newsTableView: UITableView!
     var news = [News]()
     var takeTitle = false
     var takeURL = false
@@ -19,8 +17,6 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        newsTableView.delegate = self
-        newsTableView.dataSource = self
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -28,11 +24,16 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
 
         // let url = "http://www.jwc.sjtu.edu.cn/rss/rss_notice.aspx?SubjectID=198015&TemplateID=221009"
+
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
         let url = "http://www.lcdtyph.com.cn/xrss.xml"
         let parser = XMLParser(contentsOf: URL(string: url)!)
         parser?.delegate = self
         parser?.parse()
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,17 +43,17 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     // MARK: - Table view data source
 
-    func numberOfSections(in tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return news.count
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as? NewsCell else {
             fatalError("cell error")
         }
@@ -99,15 +100,19 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        super.prepare(for: segue, sender: sender)
+        if segue.identifier != "LoadNews" { return }
+
+        let nextPage = segue.destination as! WebViewController
+        let selectedIndex = tableView.indexPathForSelectedRow!
+        nextPage.news = news[selectedIndex.row]
     }
-    */
 
     var newTitle: String!
     var newURL: String?

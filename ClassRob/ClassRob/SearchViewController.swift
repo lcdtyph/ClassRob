@@ -13,7 +13,7 @@ class SearchViewController: UIViewController, UIPickerViewDelegate, UIPickerView
 
     var database: FMDatabase? = nil
     let days = ["未指定", "星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"]
-    let times = ["未指定", "第1节-第2节", "第3节-第4节", "第5节-第6节", "第7节-第8节", "第9节-第10节", "第11节-第12节", "第13节-第14节"]
+    let times = ["未指定", "第1-2节", "第3-4节", "第5-6节", "第7-8节", "第9-10节", "第11-12节", "第13-14节"]
     var selectedDay: Int = 0
     var selectedTime: Int = 0
 
