@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="F6z-vK-58P">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Root View Controller-->
+        <scene sceneID="IEo-cb-BlS">
+            <objects>
+                <tableViewController id="CUr-tV-u0c" customClass="CourseListViewController" customModule="ClassRob" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="72" sectionHeaderHeight="28" sectionFooterHeight="28" id="sXs-tT-NFa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CourseCell" rowHeight="72" id="6an-fr-RRH" customClass="CourseCell" customModule="ClassRob" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="72"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6an-fr-RRH" id="vkV-d4-jZb">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="71.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CourseName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MR7-4J-qd0">
+                                            <rect key="frame" x="8" y="0.0" width="262.5" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="GJi-rz-jSe"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Schedule" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YGp-6I-004">
+                                            <rect key="frame" x="8" y="46" width="359" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TeacherName" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ARr-8p-gBa">
+                                            <rect key="frame" x="292" y="14" width="75" height="26"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="YGp-6I-004" secondAttribute="bottom" constant="0.5" id="7mO-Ll-cjo"/>
+                                        <constraint firstItem="ARr-8p-gBa" firstAttribute="trailing" secondItem="vkV-d4-jZb" secondAttribute="trailingMargin" id="ABn-kJ-5c4"/>
+                                        <constraint firstItem="YGp-6I-004" firstAttribute="leading" secondItem="vkV-d4-jZb" secondAttribute="leadingMargin" id="Bxj-RA-a6N"/>
+                                        <constraint firstItem="MR7-4J-qd0" firstAttribute="width" secondItem="vkV-d4-jZb" secondAttribute="width" multiplier="0.7" id="IhP-vh-fqV"/>
+                                        <constraint firstItem="YGp-6I-004" firstAttribute="trailing" secondItem="vkV-d4-jZb" secondAttribute="trailingMargin" id="PZd-OF-Daz"/>
+                                        <constraint firstItem="ARr-8p-gBa" firstAttribute="width" secondItem="vkV-d4-jZb" secondAttribute="width" multiplier="0.2" id="R74-NW-PgO"/>
+                                        <constraint firstItem="YGp-6I-004" firstAttribute="top" secondItem="MR7-4J-qd0" secondAttribute="bottom" constant="6" id="juq-rL-zPV"/>
+                                        <constraint firstItem="MR7-4J-qd0" firstAttribute="top" secondItem="vkV-d4-jZb" secondAttribute="top" id="naF-WP-Tco"/>
+                                        <constraint firstItem="YGp-6I-004" firstAttribute="top" secondItem="ARr-8p-gBa" secondAttribute="bottom" constant="6" id="pFj-n3-q2E"/>
+                                        <constraint firstItem="ARr-8p-gBa" firstAttribute="top" secondItem="vkV-d4-jZb" secondAttribute="topMargin" constant="6" id="ubn-gb-jaD"/>
+                                        <constraint firstItem="MR7-4J-qd0" firstAttribute="leading" secondItem="vkV-d4-jZb" secondAttribute="leading" constant="8" id="y6o-ra-PtB"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="courseName" destination="MR7-4J-qd0" id="xXc-4l-18H"/>
+                                    <outlet property="schedule" destination="YGp-6I-004" id="J0C-Jv-GnL"/>
+                                    <outlet property="teacherName" destination="ARr-8p-gBa" id="AAv-dC-BuB"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="CUr-tV-u0c" id="6MR-pS-uUs"/>
+                            <outlet property="delegate" destination="CUr-tV-u0c" id="JcC-WW-cTh"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="VnQ-Tb-K5c">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="nhY-mc-ypR">
+                            <connections>
+                                <action selector="cancel:" destination="CUr-tV-u0c" id="oCP-Lh-NX0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3lb-AH-fJM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="89.505247376311857"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="UjN-g0-rJg">
+            <objects>
+                <navigationController id="F6z-vK-58P" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ujZ-CR-0GO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="6bG-BM-0FT">
+                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="CUr-tV-u0c" kind="relationship" relationship="rootViewController" id="Ke3-Ul-OBs"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8gF-Zk-qeD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-815" y="90"/>
+        </scene>
+    </scenes>
+</document>

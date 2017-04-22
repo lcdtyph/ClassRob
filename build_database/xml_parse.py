@@ -30,17 +30,18 @@ class XmlHandler(xml.sax.ContentHandler):
     def endElement(self, tag):
         if tag == 'Detail' and self.ready:
             try:
-                self.conn.execute('''insert into course_info(Cnumber, Cname, Clocation, Chours, Cteacher)
-                                values(?, ?, ?, ?, ?)''', (self.course.code, self.course.course,
-                                self.course.location, self.course.coursehour, self.course.teacher))
-                for plan in self.course.plan:
-                    self.conn.execute('''insert into
-                        course_schedule(Cnumber, Cday, Ctime_start, Ctime_end, Croom, Cweeks)
-                        values(?, ?, ?, ?, ?, ?)''', (self.course.code, plan.day,
-                            plan.time[0], plan.time[1],
-                            plan.room, plan.week))
+                self.conn.execute('''insert into course_info(Cnumber, Cname, Clocation, Chours, Cteacher, Cmark)
+                                values(?, ?, ?, ?, ?, ?)''', (self.course.code, self.course.course,
+                                self.course.location, self.course.coursehour, self.course.teacher, self.course.classmark))
             except sqlite3.IntegrityError as e:
                 print('%s\nduplicate %s' % (e, str(self.course)))
+                
+            for plan in self.course.plan:
+                self.conn.execute('''insert into
+                    course_schedule(Cnumber, Cday, Ctime_start, Ctime_end, Croom, Cweeks, Cteacher)
+                    values(?, ?, ?, ?, ?, ?, ?)''', (self.course.code, plan.day,
+                        plan.time[0], plan.time[1],
+                        plan.room, plan.week, self.course.teacher))
             
     def endDocument(self):
         self.conn.commit()

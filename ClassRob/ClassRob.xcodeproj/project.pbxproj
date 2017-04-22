@@ -12,6 +12,9 @@
 		90402AD01EA67F51001E420F /* CourseDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90402ACF1EA67F51001E420F /* CourseDetail.storyboard */; };
 		90402AD31EA685C4001E420F /* CourseDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90402AD21EA685C4001E420F /* CourseDetailController.swift */; };
 		90402AD51EA6FD92001E420F /* CourseDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90402AD41EA6FD92001E420F /* CourseDetail.swift */; };
+		906A696B1EA9ADD700FE6671 /* CourseList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 906A696A1EA9ADD700FE6671 /* CourseList.storyboard */; };
+		906A696F1EA9E45F00FE6671 /* CourseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906A696E1EA9E45F00FE6671 /* CourseListViewController.swift */; };
+		906A69711EA9E54800FE6671 /* CourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906A69701EA9E54800FE6671 /* CourseCell.swift */; };
 		9077F5501E8A7ED00034192C /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9077F54F1E8A7ED00034192C /* FavoriteViewController.swift */; };
 		9077F5531E8A833B0034192C /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9077F5521E8A833B0034192C /* libsqlite3.0.tbd */; };
 		9077F5561E8B54E50034192C /* course.db in Resources */ = {isa = PBXBuildFile; fileRef = 9077F5551E8B54E50034192C /* course.db */; };
@@ -46,6 +49,9 @@
 		90402ACF1EA67F51001E420F /* CourseDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CourseDetail.storyboard; sourceTree = "<group>"; };
 		90402AD21EA685C4001E420F /* CourseDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseDetailController.swift; sourceTree = "<group>"; };
 		90402AD41EA6FD92001E420F /* CourseDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseDetail.swift; sourceTree = "<group>"; };
+		906A696A1EA9ADD700FE6671 /* CourseList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CourseList.storyboard; sourceTree = "<group>"; };
+		906A696E1EA9E45F00FE6671 /* CourseListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseListViewController.swift; sourceTree = "<group>"; };
+		906A69701EA9E54800FE6671 /* CourseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseCell.swift; sourceTree = "<group>"; };
 		9077F54F1E8A7ED00034192C /* FavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		9077F5521E8A833B0034192C /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		9077F5551E8B54E50034192C /* course.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = course.db; sourceTree = "<group>"; };
@@ -99,6 +105,9 @@
 				90402ACF1EA67F51001E420F /* CourseDetail.storyboard */,
 				90402AD21EA685C4001E420F /* CourseDetailController.swift */,
 				90402AD41EA6FD92001E420F /* CourseDetail.swift */,
+				906A696A1EA9ADD700FE6671 /* CourseList.storyboard */,
+				906A696E1EA9E45F00FE6671 /* CourseListViewController.swift */,
+				906A69701EA9E54800FE6671 /* CourseCell.swift */,
 			);
 			name = CourseDetail;
 			sourceTree = "<group>";
@@ -295,6 +304,7 @@
 				90F255591E863BBA00D10823 /* NewsTab.storyboard in Resources */,
 				907C71BF1E7970D200FC41D6 /* Assets.xcassets in Resources */,
 				907C71BD1E7970D200FC41D6 /* Main.storyboard in Resources */,
+				906A696B1EA9ADD700FE6671 /* CourseList.storyboard in Resources */,
 				90F2555F1E863C8700D10823 /* Favorite.storyboard in Resources */,
 				90402AD01EA67F51001E420F /* CourseDetail.storyboard in Resources */,
 				90F2555B1E863C3200D10823 /* Search.storyboard in Resources */,
@@ -409,7 +419,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				90402AD51EA6FD92001E420F /* CourseDetail.swift in Sources */,
+				906A696F1EA9E45F00FE6671 /* CourseListViewController.swift in Sources */,
 				907C71DC1E7A658900FC41D6 /* News.swift in Sources */,
+				906A69711EA9E54800FE6671 /* CourseCell.swift in Sources */,
 				907C71D81E7A391400FC41D6 /* NewsCell.swift in Sources */,
 				907C71DE1E7BA35B00FC41D6 /* NewsViewController.swift in Sources */,
 				90402AD31EA685C4001E420F /* CourseDetailController.swift in Sources */,
