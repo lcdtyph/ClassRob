@@ -18,13 +18,15 @@ class CourseItem {
 class CourseListViewController: UITableViewController {
 
     var listItem = [CourseDetail]()
-
+    
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

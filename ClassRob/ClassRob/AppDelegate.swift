@@ -40,6 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                             "Ctime_end tinyint not null, " +
                                             "Croom varchar(64) not null, " +
                                             "Cweeks varchar(64) not null, " +
+                                            "Cmark tinyint not null, " +
                                             "Clocation varchar(128) not null" +
                                            ")", values: nil)
                 database.close()

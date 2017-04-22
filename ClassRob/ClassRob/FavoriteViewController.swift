@@ -21,14 +21,15 @@ class FavItem {
     }
 }
 
-class FavoriteViewController: UITableViewController {
+class FavoriteViewController: UINavigationController, UINavigationControllerDelegate {
 
     var favItems = [FavItem]()
     var database: FMDatabase? = nil
+    let days = ["未指定", "星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
+        self.delegate = self
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -40,30 +41,52 @@ class FavoriteViewController: UITableViewController {
         super.viewWillAppear(animated)
 
         initDatabase()
-        loadFavItems()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-
         closeDatabase()
     }
 
-    func loadFavItems() {
-        do {
-            let result = (try self.database?.executeQuery("select Cname,Cnumber,Cteacher from favorite", values: nil))!
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        if let nextVC = viewController as? CourseListViewController, nextVC === self.viewControllers.first {
+            do {
+                if self.database == nil {
+                    initDatabase()
+                }
 
-            while result.next() {
-                self.favItems.append(FavItem(name: result.string(forColumn: "Cname"),
-                                             number: result.string(forColumn: "Cnumber"),
-                                             teacher: result.string(forColumn: "Cteacher")))
+                let result = (try self.database?.executeQuery("select * from favorite", values: nil))!
+
+                while result.next() {
+                    let id = result.string(forColumn: "Cnumber")!
+                    let name = result.string(forColumn: "Cname")!
+                    let teacher = result.string(forColumn: "Cteacher")!
+                    let start = result.string(forColumn: "Ctime_start")!
+                    let end = result.string(forColumn: "Ctime_end")!
+                    let day = result.string(forColumn: "Cday")!
+                    let room = result.string(forColumn: "Croom")!
+                    let weeks = result.string(forColumn: "Cweeks")!
+                    let mark = result.string(forColumn: "Cmark")!
+                    let location = result.string(forColumn: "Clocation")!
+
+                    let tmpDetail = CourseDetail(name, teacher, id, mark,
+                                                 location + " " + room,
+                                                 days[Int(day)! + 1] +
+                                                    String(format: "第%@节-第%@节", start, end),
+                                                 weeks
+                    )
+                    tmpDetail.raw_values = [start, end, day, room, location]
+                    nextVC.listItem.append(tmpDetail)
+                }
+                nextVC.title = "我的收藏"
+                nextVC.navigationItem.leftBarButtonItem = nil
+
+            } catch {
+                print(error.localizedDescription)
             }
-
-        } catch {
-            print(error.localizedDescription)
         }
     }
-
+    
     func initDatabase() {
         if (self.database != nil) {
             return
@@ -94,66 +117,6 @@ class FavoriteViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return self.favItems.count
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "FavCell", for: indexPath) as? FavCell else {
-            fatalError()
-        }
-
-        // Configure the cell...
-        cell.courseName.text = favItems[indexPath.row].name
-        cell.courseNumber.text = favItems[indexPath.row].number
-        cell.courseTeacher.text = favItems[indexPath.row].teacher
-
-        return cell
-    }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
 
     // MARK: - Navigation
