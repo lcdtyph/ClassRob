@@ -37,7 +37,7 @@
                                 <rect key="frame" x="16" y="263" width="343" height="320"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CommentCell" rowHeight="86" id="qZH-at-5Tj">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CommentCell" rowHeight="86" id="qZH-at-5Tj" customClass="CommentCell" customModule="ClassRob" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="86"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qZH-at-5Tj" id="qdw-N3-Nd6">
@@ -71,6 +71,10 @@
                                                 <constraint firstItem="Yzx-wU-suR" firstAttribute="top" secondItem="w7y-Qc-hMd" secondAttribute="bottom" id="kmx-Qd-enY"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="comment" destination="w7y-Qc-hMd" id="owF-4s-CLp"/>
+                                            <outlet property="timestamp" destination="Yzx-wU-suR" id="BWp-z8-0WH"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -176,28 +180,31 @@
                                 <state key="selected" image="HighlightedStar"/>
                                 <state key="highlighted" image="FilledStar"/>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="SIV-Nc-eLL">
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SIV-Nc-eLL">
                                 <rect key="frame" x="16" y="591" width="343" height="60"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Mvu-pF-aT9">
-                                        <rect key="frame" x="0.0" y="0.0" width="288" height="60"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="291" height="60"/>
                                         <color key="backgroundColor" red="0.97136091321243523" green="0.97136091321243523" blue="0.97136091321243523" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <accessibility key="accessibilityConfiguration" hint="最多可输入140个字哦"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="dCp-fI-l4V"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
                                     </textView>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2DN-oR-wdv">
-                                        <rect key="frame" x="302" y="0.0" width="41" height="60"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2DN-oR-wdv">
+                                        <rect key="frame" x="291" y="0.0" width="52" height="60"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="评论"/>
+                                        <state key="normal" title="  评论  "/>
+                                        <connections>
+                                            <action selector="submitComment:" destination="c0g-aJ-nDh" eventType="touchUpInside" id="QWk-VD-8RN"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="2DN-oR-wdv" firstAttribute="leading" secondItem="Mvu-pF-aT9" secondAttribute="trailing" constant="14" id="2I6-K8-itZ"/>
                                     <constraint firstAttribute="bottom" secondItem="2DN-oR-wdv" secondAttribute="bottom" id="E3b-NF-eDh"/>
                                     <constraint firstItem="2DN-oR-wdv" firstAttribute="top" secondItem="SIV-Nc-eLL" secondAttribute="top" id="H28-Ov-j5f"/>
                                     <constraint firstItem="Mvu-pF-aT9" firstAttribute="leading" secondItem="SIV-Nc-eLL" secondAttribute="leading" id="Hpa-aQ-Tmi"/>
@@ -230,6 +237,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="commentButton" destination="2DN-oR-wdv" id="Eth-Nc-pcQ"/>
+                        <outlet property="commentEditor" destination="Mvu-pF-aT9" id="Xal-wg-7da"/>
                         <outlet property="editStack" destination="SIV-Nc-eLL" id="n2e-Wq-Yjw"/>
                         <outlet property="favButton" destination="3m2-xf-e5h" id="yuD-05-nVT"/>
                         <outlet property="id" destination="XIw-wA-ZdJ" id="7hr-V3-LaL"/>

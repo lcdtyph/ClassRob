@@ -9,11 +9,12 @@
 import UIKit
 import FMDB
 
-class CourseDetailController: UIViewController {
+class CourseDetailController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var detail: CourseDetail!
     var database: FMDatabase? = nil
     var editStackDet: CGFloat = 0
+    var commentData = [Any]()
 
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var favButton: UIButton!
@@ -26,6 +27,9 @@ class CourseDetailController: UIViewController {
     @IBOutlet weak var weeks: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var editStack: UIStackView!
+
+    @IBOutlet weak var commentButton: UIButton!
+    @IBOutlet weak var commentEditor: UITextView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +44,12 @@ class CourseDetailController: UIViewController {
         self.weeks.text     = detail.weeks
 
         editStackDet = view.frame.height - editStack.frame.origin.y
+        commentEditor.layer.borderColor = UIColor.gray.cgColor
+        commentEditor.layer.borderWidth = 1.0
+        commentEditor.layer.cornerRadius = 2.5
         tableView.tableFooterView = UIView(frame: CGRect.zero)
+        tableView.delegate = self
+        tableView.dataSource = self
         favButton.addTarget(self, action: #selector(CourseDetailController.favButtonTapped(button:)), for: .touchUpInside)
         NotificationCenter.default.addObserver(self,
                             selector: #selector(CourseDetailController.keyboardWillShow(_: )),
@@ -88,11 +97,17 @@ class CourseDetailController: UIViewController {
         if detail.favorite == 1 {
             favButton.isSelected = true
         }
+        loadComment()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         closeDatabase()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.reloadData()
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -185,5 +200,79 @@ class CourseDetailController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+
+    // MARK: - Table view data source
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return commentData.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as? CommentCell else {
+            fatalError("cell error")
+        }
+
+        // Configure the cell...
+        let data = commentData[indexPath.row] as! [String: String]
+        cell.comment.text = data["Ccomment"]
+        cell.timestamp.text = data["Timestamp"]
+        // cell.url = news[index.Path].url
+
+        return cell
+    }
+
+    func loadComment() {
+        let url = URL(string: "http://lcdtyph.com.cn/api/comment.php?action=require&cid=\(detail.id)")
+        URLSession.shared.dataTask(with: url!) { (data, response, error) in
+            if error != nil {
+                print(error!.localizedDescription)
+            } else {
+                do {
+                    let parsedData = try JSONSerialization.jsonObject(with: data!, options: []) as! [String: Any]
+                    self.commentData = parsedData["data"] as! [Any]
+
+                    print(self.commentData)
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                } catch let error as NSError {
+                    print(error.localizedDescription)
+                }
+            }
+            
+        }.resume()
+    }
+
+    // ACTION:
+    @IBAction func submitComment(_ sender: Any) {
+        let comment = self.commentEditor.text!
+        let length = comment.characters.count
+        if length > 140 {
+            let alert = UIAlertController(title: "评论过长", message: "请限制在140字以内哦", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "好的", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        let base64 = Data(comment.utf8).base64EncodedString()
+        print(base64)
+        let url = URL(string: "http://lcdtyph.com.cn/api/comment.php?action=new&cid=\(detail.id)&cmt=\(base64)")
+        URLSession.shared.dataTask(with: url!) { (data, response, error) in
+            if error != nil {
+                print(error!.localizedDescription)
+            } else {
+                DispatchQueue.main.async {
+                    self.view.endEditing(true)
+                    self.commentEditor.text = ""
+                    self.loadComment()
+                }
+            }
+        }.resume()
+    }
 
 }
