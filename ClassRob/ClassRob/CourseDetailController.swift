@@ -13,6 +13,7 @@ class CourseDetailController: UIViewController {
 
     var detail: CourseDetail!
     var database: FMDatabase? = nil
+    var editStackDet: CGFloat = 0
 
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var favButton: UIButton!
@@ -38,6 +39,7 @@ class CourseDetailController: UIViewController {
         self.time.text      = detail.time
         self.weeks.text     = detail.weeks
 
+        editStackDet = view.frame.height - editStack.frame.origin.y
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         favButton.addTarget(self, action: #selector(CourseDetailController.favButtonTapped(button:)), for: .touchUpInside)
         NotificationCenter.default.addObserver(self,
@@ -167,10 +169,11 @@ class CourseDetailController: UIViewController {
 
     func adjustingHeight(show: Bool, notification: Notification) {
         var userInfo = notification.userInfo!
-        let keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
-        let changeInHeight = (keyboardFrame.height) * (show ? 1 : -1)
+        let keyboardFrame:CGRect = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        //let changeInHeight = (keyboardFrame.height) * (show ? 1 : -1)
 
-        editStack.frame.origin.y -= changeInHeight
+        let changeInHeight = keyboardFrame.origin.y
+        editStack.frame.origin.y = changeInHeight - editStackDet
     }
 
     /*
