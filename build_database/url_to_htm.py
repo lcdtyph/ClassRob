@@ -4,6 +4,7 @@
 from lxml import html
 import sys
 import requests
+import re
 
 def main():
     if len(sys.argv) < 2:
@@ -22,6 +23,8 @@ def url2json(url):
 
 %s
 
+%s
+
 </body></html>
     '''
 
@@ -36,9 +39,13 @@ def url2json(url):
     proper = tree.xpath("//td[@class='font_cont1']")
     proper = html.tostring(proper[0]).decode('utf-8')
 
+    archivement = tree.xpath("//table[@class='main_r_co_fo']/tr[2]/td")
+    archivement = html.tostring(archivement[0]).decode('utf-8')
+    archivement, _ = re.subn(r'href="([^"]+)', r'href="http://www.jwc.sjtu.edu.cn\1', archivement)
+
     filename = url[url.rfind('/') + 1: ]
     with open('output/' + filename, 'w') as f:
-        f.write(fmt % (title, proper))
+        f.write(fmt % (title, proper, archivement))
     return filename
 
 if __name__ == '__main__':

@@ -4,7 +4,7 @@
 import requests
 import sys
 import re
-from url_to_json import url2json
+from url_to_htm import url2json
 
 def main():
     prefix = '.'
