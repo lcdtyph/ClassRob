@@ -12,6 +12,7 @@ class CommentCell: UITableViewCell {
 
     @IBOutlet weak var comment: UILabel!
     @IBOutlet weak var timestamp: UILabel!
+    @IBOutlet weak var rating: RatingControl!
 
     override func awakeFromNib() {
         super.awakeFromNib()

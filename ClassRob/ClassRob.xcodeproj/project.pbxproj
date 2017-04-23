@@ -17,6 +17,11 @@
 		904259F21EAC6AA200664D9B /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904259F11EAC6AA200664D9B /* CommentCell.swift */; };
 		904259F41EAC870100664D9B /* TeacherDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904259F31EAC870100664D9B /* TeacherDetailController.swift */; };
 		904259F61EAC873700664D9B /* TeacherDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 904259F51EAC873700664D9B /* TeacherDetail.storyboard */; };
+		904259F81EACFBC600664D9B /* CommentView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 904259F71EACFBC600664D9B /* CommentView.storyboard */; };
+		904259FA1EACFE9D00664D9B /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904259F91EACFE9D00664D9B /* CommentViewController.swift */; };
+		904259FD1EAD05A700664D9B /* SubmitCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904259FC1EAD05A700664D9B /* SubmitCommentViewController.swift */; };
+		904259FF1EAD0F8400664D9B /* LoadCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904259FE1EAD0F8400664D9B /* LoadCommentViewController.swift */; };
+		90425A011EAD104E00664D9B /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90425A001EAD104E00664D9B /* RatingControl.swift */; };
 		906A696B1EA9ADD700FE6671 /* CourseList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 906A696A1EA9ADD700FE6671 /* CourseList.storyboard */; };
 		906A696F1EA9E45F00FE6671 /* CourseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906A696E1EA9E45F00FE6671 /* CourseListViewController.swift */; };
 		906A69711EA9E54800FE6671 /* CourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906A69701EA9E54800FE6671 /* CourseCell.swift */; };
@@ -58,6 +63,11 @@
 		904259F11EAC6AA200664D9B /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		904259F31EAC870100664D9B /* TeacherDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherDetailController.swift; sourceTree = "<group>"; };
 		904259F51EAC873700664D9B /* TeacherDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TeacherDetail.storyboard; sourceTree = "<group>"; };
+		904259F71EACFBC600664D9B /* CommentView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CommentView.storyboard; sourceTree = "<group>"; };
+		904259F91EACFE9D00664D9B /* CommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
+		904259FC1EAD05A700664D9B /* SubmitCommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitCommentViewController.swift; sourceTree = "<group>"; };
+		904259FE1EAD0F8400664D9B /* LoadCommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadCommentViewController.swift; sourceTree = "<group>"; };
+		90425A001EAD104E00664D9B /* RatingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		906A696A1EA9ADD700FE6671 /* CourseList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CourseList.storyboard; sourceTree = "<group>"; };
 		906A696E1EA9E45F00FE6671 /* CourseListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseListViewController.swift; sourceTree = "<group>"; };
 		906A69701EA9E54800FE6671 /* CourseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseCell.swift; sourceTree = "<group>"; };
@@ -110,6 +120,7 @@
 		90402AD11EA6855F001E420F /* CourseDetail */ = {
 			isa = PBXGroup;
 			children = (
+				904259FB1EAD013000664D9B /* CommentView */,
 				90402ACF1EA67F51001E420F /* CourseDetail.storyboard */,
 				90402AD21EA685C4001E420F /* CourseDetailController.swift */,
 				90402AD41EA6FD92001E420F /* CourseDetail.swift */,
@@ -117,11 +128,23 @@
 				904259ED1EAB94AA00664D9B /* CourseListRootView.storyboard */,
 				906A696E1EA9E45F00FE6671 /* CourseListViewController.swift */,
 				906A69701EA9E54800FE6671 /* CourseCell.swift */,
-				904259F11EAC6AA200664D9B /* CommentCell.swift */,
 				904259F31EAC870100664D9B /* TeacherDetailController.swift */,
 				904259F51EAC873700664D9B /* TeacherDetail.storyboard */,
 			);
 			name = CourseDetail;
+			sourceTree = "<group>";
+		};
+		904259FB1EAD013000664D9B /* CommentView */ = {
+			isa = PBXGroup;
+			children = (
+				904259F71EACFBC600664D9B /* CommentView.storyboard */,
+				904259F91EACFE9D00664D9B /* CommentViewController.swift */,
+				904259F11EAC6AA200664D9B /* CommentCell.swift */,
+				904259FC1EAD05A700664D9B /* SubmitCommentViewController.swift */,
+				904259FE1EAD0F8400664D9B /* LoadCommentViewController.swift */,
+				90425A001EAD104E00664D9B /* RatingControl.swift */,
+			);
+			name = CommentView;
 			sourceTree = "<group>";
 		};
 		9077F5511E8A833A0034192C /* Frameworks */ = {
@@ -322,6 +345,7 @@
 				904259F61EAC873700664D9B /* TeacherDetail.storyboard in Resources */,
 				90402AD01EA67F51001E420F /* CourseDetail.storyboard in Resources */,
 				90F2555B1E863C3200D10823 /* Search.storyboard in Resources */,
+				904259F81EACFBC600664D9B /* CommentView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +456,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				904259FA1EACFE9D00664D9B /* CommentViewController.swift in Sources */,
 				90402AD51EA6FD92001E420F /* CourseDetail.swift in Sources */,
 				904259F01EABDBCD00664D9B /* WebViewController.swift in Sources */,
 				906A696F1EA9E45F00FE6671 /* CourseListViewController.swift in Sources */,
@@ -441,10 +466,13 @@
 				907C71DE1E7BA35B00FC41D6 /* NewsViewController.swift in Sources */,
 				90402AD31EA685C4001E420F /* CourseDetailController.swift in Sources */,
 				907C71B61E7970D200FC41D6 /* AppDelegate.swift in Sources */,
+				904259FD1EAD05A700664D9B /* SubmitCommentViewController.swift in Sources */,
 				9077F5501E8A7ED00034192C /* FavoriteViewController.swift in Sources */,
+				904259FF1EAD0F8400664D9B /* LoadCommentViewController.swift in Sources */,
 				907C71B81E7970D200FC41D6 /* SearchViewController.swift in Sources */,
 				904259F41EAC870100664D9B /* TeacherDetailController.swift in Sources */,
 				904259F21EAC6AA200664D9B /* CommentCell.swift in Sources */,
+				90425A011EAD104E00664D9B /* RatingControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
