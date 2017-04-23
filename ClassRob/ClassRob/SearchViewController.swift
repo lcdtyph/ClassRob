@@ -144,8 +144,7 @@ class SearchViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         } catch {
             print(error.localizedDescription)
         }
-        
-        print(sqlQuery)
+
     }
 
 }

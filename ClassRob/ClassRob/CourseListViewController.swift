@@ -111,6 +111,7 @@ class CourseListViewController: UITableViewController {
         let nextPage = segue.destination as! CourseDetailController
         let selectedIndex = tableView.indexPathForSelectedRow!
         nextPage.detail = listItem[selectedIndex.row]
+        nextPage.title = "课程详情"
     }
 
 }

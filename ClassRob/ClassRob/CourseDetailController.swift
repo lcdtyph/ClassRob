@@ -191,15 +191,17 @@ class CourseDetailController: UIViewController, UITableViewDelegate, UITableView
         editStack.frame.origin.y = changeInHeight - editStackDet
     }
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        super.prepare(for: segue, sender: sender)
+        if segue.identifier != "ShowTeacherSegue" { return }
+        let nextPage = segue.destination as! TeacherDetailController
+        nextPage.title = detail.teacher
     }
-    */
 
     // MARK: - Table view data source
 
@@ -237,7 +239,6 @@ class CourseDetailController: UIViewController, UITableViewDelegate, UITableView
                     let parsedData = try JSONSerialization.jsonObject(with: data!, options: []) as! [String: Any]
                     self.commentData = parsedData["data"] as! [Any]
 
-                    print(self.commentData)
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }
@@ -260,7 +261,6 @@ class CourseDetailController: UIViewController, UITableViewDelegate, UITableView
             return
         }
         let base64 = Data(comment.utf8).base64EncodedString()
-        print(base64)
         let url = URL(string: "http://lcdtyph.com.cn/api/comment.php?action=new&cid=\(detail.id)&cmt=\(base64)")
         URLSession.shared.dataTask(with: url!) { (data, response, error) in
             if error != nil {

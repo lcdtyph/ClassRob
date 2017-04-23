@@ -26,6 +26,13 @@ def main():
                 Ctime_end tinyint not null,
                 Croom varchar(64) not null,
                 Cweeks varchar(64) not null);''')
+    conn.execute('''CREATE TABLE teacher_info(
+                Tname char(16) not null,
+                Tdepartment varchar(127),
+                Ttitle char(31),
+                Tphone char(31),
+                Taddress varchar(255),
+                Tmail varchar(127));''')
 
     conn.commit()
     conn.close()

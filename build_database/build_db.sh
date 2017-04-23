@@ -5,7 +5,7 @@ if [ -z $1 ]; then
     exit 1;
 fi
 
-[output] || mkdir output
+mkdir -p output
 
 ./init_db.py && ./xml_parse.py $1
 

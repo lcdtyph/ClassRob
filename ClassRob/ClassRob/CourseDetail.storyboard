@@ -34,7 +34,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="86" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HFC-MH-T1D">
-                                <rect key="frame" x="16" y="263" width="343" height="320"/>
+                                <rect key="frame" x="16" y="279" width="343" height="304"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CommentCell" rowHeight="86" id="qZH-at-5Tj" customClass="CommentCell" customModule="ClassRob" customModuleProvider="target">
@@ -214,13 +214,24 @@
                                     <constraint firstAttribute="trailing" secondItem="2DN-oR-wdv" secondAttribute="trailing" id="yHM-pt-GRa"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0eK-tf-pHb">
+                                <rect key="frame" x="278" y="247" width="81" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="ThW-VJ-W84"/>
+                                </constraints>
+                                <state key="normal" title="&gt;&gt;教师详情"/>
+                                <connections>
+                                    <segue destination="bYd-aX-UQu" kind="show" identifier="ShowTeacherSegue" id="QX3-2x-gKz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="c31-I2-t3k" firstAttribute="trailing" secondItem="X83-sA-ygi" secondAttribute="trailingMargin" id="3X3-mz-g06"/>
                             <constraint firstItem="CsZ-88-Wkd" firstAttribute="top" secondItem="3m2-xf-e5h" secondAttribute="bottom" constant="8" id="72L-q3-17y"/>
-                            <constraint firstItem="HFC-MH-T1D" firstAttribute="top" secondItem="CsZ-88-Wkd" secondAttribute="bottom" constant="16" id="E4I-Cg-Hwb"/>
+                            <constraint firstItem="HFC-MH-T1D" firstAttribute="top" secondItem="CsZ-88-Wkd" secondAttribute="bottom" constant="32" id="E4I-Cg-Hwb"/>
                             <constraint firstItem="SIV-Nc-eLL" firstAttribute="leading" secondItem="X83-sA-ygi" secondAttribute="leadingMargin" id="MAU-S0-GiJ"/>
+                            <constraint firstItem="0eK-tf-pHb" firstAttribute="trailing" secondItem="X83-sA-ygi" secondAttribute="trailingMargin" id="Q2I-99-gKT"/>
                             <constraint firstItem="HFC-MH-T1D" firstAttribute="trailing" secondItem="X83-sA-ygi" secondAttribute="trailingMargin" id="SS1-Kh-9gC"/>
                             <constraint firstItem="EtV-Hu-oXP" firstAttribute="top" secondItem="SIV-Nc-eLL" secondAttribute="bottom" constant="16" id="STJ-Uy-wQ6"/>
                             <constraint firstItem="CsZ-88-Wkd" firstAttribute="top" secondItem="c31-I2-t3k" secondAttribute="bottom" constant="8" id="WWg-EQ-nqm"/>
@@ -228,6 +239,7 @@
                             <constraint firstItem="3m2-xf-e5h" firstAttribute="trailing" secondItem="X83-sA-ygi" secondAttribute="trailingMargin" id="b1D-zS-4hS"/>
                             <constraint firstItem="HFC-MH-T1D" firstAttribute="leading" secondItem="X83-sA-ygi" secondAttribute="leadingMargin" id="clW-Py-G4d"/>
                             <constraint firstItem="SIV-Nc-eLL" firstAttribute="top" secondItem="HFC-MH-T1D" secondAttribute="bottom" constant="8" id="icm-Mk-07i"/>
+                            <constraint firstItem="0eK-tf-pHb" firstAttribute="top" secondItem="CsZ-88-Wkd" secondAttribute="bottom" id="j1b-qD-kCT"/>
                             <constraint firstItem="c31-I2-t3k" firstAttribute="top" secondItem="t5Q-x5-djK" secondAttribute="bottom" constant="8" id="jVy-iP-OlJ"/>
                             <constraint firstItem="Ysj-IS-PBU" firstAttribute="width" secondItem="X83-sA-ygi" secondAttribute="width" multiplier="0.35" constant="-32" id="mei-C3-HQz"/>
                             <constraint firstItem="c31-I2-t3k" firstAttribute="leading" secondItem="X83-sA-ygi" secondAttribute="leadingMargin" id="mwY-XH-aQs"/>
@@ -254,6 +266,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zgT-td-p7Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="98.400000000000006" y="-124.58770614692655"/>
+        </scene>
+        <!--TeacherDetail-->
+        <scene sceneID="Ncd-uL-UjA">
+            <objects>
+                <viewControllerPlaceholder storyboardName="TeacherDetail" id="bYd-aX-UQu" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VGC-Kg-B6l" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="834" y="-125"/>
         </scene>
     </scenes>
     <resources>
