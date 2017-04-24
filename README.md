@@ -18,16 +18,29 @@
 先从教育信息网下载当前学期的排课表导出为XML格式，而后执行：
 
 ```bash
-cd build_database
+pushd build_database
 ./build_db.sh <xml_file>
+popd
 ```
 
 结果会保存在```build_database/output/course.db```中。
 
 ### APP构建
  
- *// TODO*
- 
+将上一步生成的course.db拷贝到ClassRob目录中
+
+```bash
+cp build_database/output/course.db ../ClassRob/course.db
+```
+
+切换到ClassRob目录，更新pod并打开工程
+
+```bash
+cd ClassRob
+pod install
+open ClassRob.xcworkspace
+```
+
 ## License
 
 >lcdtyph <lcdtyph@gmail.com>
