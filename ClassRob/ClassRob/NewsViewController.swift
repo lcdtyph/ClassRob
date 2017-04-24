@@ -118,7 +118,7 @@ class NewsViewController: UITableViewController, XMLParserDelegate {
         nextPage.news = news[selectedIndex.row]
     }
 
-    var newTitle: String!
+    var newTitle: String! = ""
     var newURL: String?
 
     public func parser(_ parser: XMLParser, didStartElement elementName: String,
@@ -150,6 +150,8 @@ class NewsViewController: UITableViewController, XMLParserDelegate {
             takeTitle = false
             takeURL = false
             news.append(News(title: newTitle, url: newURL)!)
+            newTitle = ""
+            newURL = nil
 
         case "title":
             takeTitle = false
@@ -163,7 +165,7 @@ class NewsViewController: UITableViewController, XMLParserDelegate {
 
     public func parser(_ parser: XMLParser, foundCharacters string: String) {
         if takeTitle {
-            newTitle = string.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
+            newTitle = newTitle + string.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
         }
         if takeURL {
             newURL = string

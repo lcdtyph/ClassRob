@@ -19,8 +19,20 @@ class SubmitCommentViewController: UIViewController {
     @IBAction func submitCallback(_ sender: Any) {
         let comment = self.commentEditor.text!
         let length = comment.characters.count
+        if rating.rating == 0 {
+            let alert = UIAlertController(title: "请评分", message: "请点击星星评分", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "好的", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
         if length > 140 {
             let alert = UIAlertController(title: "评论过长", message: "请限制在140字以内哦", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "好的", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        if length == 0 {
+            let alert = UIAlertController(title: "评论不能为空", message: "请填写评论", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "好的", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
             return
@@ -35,6 +47,9 @@ class SubmitCommentViewController: UIViewController {
                     self.view.endEditing(true)
                     self.commentEditor.text = ""
                     self.rating.rating = 0
+                    let alert = UIAlertController(title: "成功", message: "评论成功！", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "好的", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
                 }
             }
         }.resume()
