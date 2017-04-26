@@ -104,7 +104,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N/A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t4n-YY-epx">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N/A" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t4n-YY-epx">
                                                 <rect key="frame" x="0.0" y="146" width="211.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -123,6 +123,7 @@
                                     <constraint firstItem="gfX-UD-BVZ" firstAttribute="top" secondItem="CsZ-88-Wkd" secondAttribute="top" id="Hnr-ku-LtM"/>
                                     <constraint firstAttribute="trailing" secondItem="gfX-UD-BVZ" secondAttribute="trailing" id="aWI-yv-1Rd"/>
                                     <constraint firstItem="aBd-zF-LLR" firstAttribute="height" secondItem="qBg-5v-TbA" secondAttribute="height" id="fUC-SO-Qa9"/>
+                                    <constraint firstItem="t4n-YY-epx" firstAttribute="height" secondItem="KkK-Qe-DLm" secondAttribute="height" id="lOZ-KV-ZbE"/>
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3m2-xf-e5h">

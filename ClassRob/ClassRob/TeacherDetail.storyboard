@@ -86,7 +86,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="U08-Bp-Fvz">
                                         <rect key="frame" x="147.5" y="0.0" width="195.5" height="166.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="n/a" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WF1-Xo-aHf">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="n/a" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WF1-Xo-aHf">
                                                 <rect key="frame" x="0.5" y="0.0" width="195" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -110,7 +110,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="n/a" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zWZ-Ct-bo7">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="n/a" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zWZ-Ct-bo7">
                                                 <rect key="frame" x="0.5" y="146" width="195" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -136,7 +136,9 @@
                                     <constraint firstItem="U08-Bp-Fvz" firstAttribute="top" secondItem="uBB-c2-h3E" secondAttribute="top" id="0I4-4v-dBX"/>
                                     <constraint firstAttribute="bottom" secondItem="U08-Bp-Fvz" secondAttribute="bottom" id="IfV-d0-o3d"/>
                                     <constraint firstItem="YQE-aw-dEo" firstAttribute="height" secondItem="Hev-hf-BN2" secondAttribute="height" id="N6A-lr-qmZ"/>
+                                    <constraint firstItem="WF1-Xo-aHf" firstAttribute="height" secondItem="KaU-xR-wp4" secondAttribute="height" id="S6P-jG-FbX"/>
                                     <constraint firstAttribute="trailing" secondItem="U08-Bp-Fvz" secondAttribute="trailing" id="SYQ-Kf-5wv"/>
+                                    <constraint firstItem="zWZ-Ct-bo7" firstAttribute="height" secondItem="8Al-7B-f3u" secondAttribute="height" id="UWO-EU-Ond"/>
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3g5-mO-Xla">
