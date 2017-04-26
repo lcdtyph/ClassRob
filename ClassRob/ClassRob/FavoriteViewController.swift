@@ -77,9 +77,11 @@ class FavoriteViewController: UINavigationController, UINavigationControllerDele
                                                  weeks
                     )
                     tmpDetail.raw_values = [start, end, day, room, location]
+                    tmpDetail.favorite = 1
                     nextVC.listItem.append(tmpDetail)
                 }
                 nextVC.title = "我的收藏"
+                nextVC.isFavoriteList = true
                 nextVC.navigationItem.leftBarButtonItem = nil
                 nextVC.tableView.reloadData()
 
@@ -119,20 +121,5 @@ class FavoriteViewController: UINavigationController, UINavigationControllerDele
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        if segue.identifier == "FavoriteSegue" {
-            let nextPage = segue.destination as! CourseDetailController
-            nextPage.detail = CourseDetail("a", "b", "c", "d", "e", "f", "g")
-            nextPage.title = "Course Detail"
-        }
-    }
-
 
 }

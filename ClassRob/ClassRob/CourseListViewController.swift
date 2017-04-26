@@ -18,6 +18,7 @@ class CourseItem {
 class CourseListViewController: UITableViewController {
 
     var listItem = [CourseDetail]()
+    var isFavoriteList = false
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
@@ -64,13 +65,22 @@ class CourseListViewController: UITableViewController {
         return cell
     }
 
-    /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
-        return true
+        return isFavoriteList
     }
-    */
+
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .normal, title: "删除") { action, index in
+            self.listItem[index.row].favorite = 0
+            self.listItem.remove(at: index.row)
+            tableView.deleteRows(at: [index], with: .fade)
+        }
+        delete.backgroundColor = UIColor.red
+
+        return [delete]
+    }
 
     /*
     // Override to support editing the table view.
