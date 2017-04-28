@@ -9,21 +9,8 @@
 import UIKit
 import FMDB
 
-class FavItem {
-    var name: String
-    var number: String
-    var teacher: String
-
-    init(name: String, number: String, teacher: String) {
-        self.name = name
-        self.number = number
-        self.teacher = teacher
-    }
-}
-
 class FavoriteViewController: UINavigationController, UINavigationControllerDelegate {
 
-    var favItems = [FavItem]()
     var database: FMDatabase? = nil
     let days = ["未指定", "星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"]
 
@@ -90,7 +77,7 @@ class FavoriteViewController: UINavigationController, UINavigationControllerDele
             }
         }
     }
-    
+
     func initDatabase() {
         if (self.database != nil) {
             return

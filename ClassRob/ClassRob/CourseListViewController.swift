@@ -8,13 +8,6 @@
 
 import UIKit
 
-class CourseItem {
-    var name: String     = ""
-    var teacher: String  = ""
-    var schedule: String = ""
-    var detail: CourseDetail? = nil
-}
-
 class CourseListViewController: UITableViewController {
 
     var listItem = [CourseDetail]()
